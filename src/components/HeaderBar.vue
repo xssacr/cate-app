@@ -25,7 +25,6 @@ export default {
   display: flex;
   align-items: center;
   height: 48px;
-  // background-color: #f78;
   span {
     width: 48px;
     height: 100%;
@@ -37,7 +36,7 @@ export default {
   }
   .header-input-full-style {
     flex: 1;
-    background-color: #cfcfcf;
+    background-color: #d9d9d9;
     border-radius: 4px;
     height: 40px;
     display: flex;
@@ -54,7 +53,7 @@ export default {
       flex: 1;
       font-size: 18px;
       color: #555;
-      background-color: #cfcfcf;
+      background-color: #d9d9d9;
       border: 0;
     }
   }

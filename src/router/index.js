@@ -19,7 +19,7 @@ const routes = [
   // 访问 / 时跳转到 推荐
   {
     path: '/',
-    redirect: '/home/kitchen/recommend'
+    redirect: '/home/kitchen'
   },
   {
     // 首页
@@ -30,24 +30,23 @@ const routes = [
         // 厨房
         path: 'kitchen',
         component: Kitchen,
-        redirect: '/home/kitchen/recommend',
-        children: [
-          {
-            // 关注
-            path: 'attention',
-            component: Attention
-          },
-          {
-            // 推荐 (网页第一次加载时跳转到这里)
-            path: 'recommend',
-            component: Recommend
-          },
-          {
-            // 发现
-            path: 'discover',
-            component: Discover
-          }
-        ]
+        // children: [
+        //   {
+        //     // 关注
+        //     path: 'attention',
+        //     component: Attention
+        //   },
+        //   {
+        //     // 推荐 (网页第一次加载时跳转到这里)
+        //     path: 'recommend',
+        //     component: Recommend
+        //   },
+        //   {
+        //     // 发现
+        //     path: 'discover',
+        //     component: Discover
+        //   }
+        // ]
       },
       {
         // 市集
