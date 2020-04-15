@@ -16,11 +16,21 @@
         <span class="cate-menu-category">菜谱分类</span>
       </van-col>
     </van-row>
+
+    <!-- 推荐列表 -->
+    <div class="rec-list">
+      <RecommendItem v-for="i in 3" :key="i"></RecommendItem>
+    </div>
   </div>
 </template>
 
 <script>
-export default {};
+import RecommendItem from "./RecommendItem";
+export default {
+  components: {
+    RecommendItem
+  }
+};
 </script>
 
 <style lang="scss" scoped>
@@ -28,6 +38,7 @@ export default {};
   padding: 10px;
   height: 100%;
   box-sizing: border-box;
+  flex: 1;
   .topic-square {
     // 话题广场
     height: 38px;
@@ -48,10 +59,18 @@ export default {};
       font-weight: bold;
       font-size: 22px;
     }
-    .cate-menu-category{
+    .cate-menu-category {
       font-size: 16px;
       color: #ccc;
     }
+  }
+
+  .rec-list {
+    display: flex;
+    flex: 1;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    position: relative;
   }
 }
 </style>
