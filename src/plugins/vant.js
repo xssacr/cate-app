@@ -1,5 +1,5 @@
 import Vue from 'vue'
-import { Button, Col, Row, Tab, Tabs,Icon,Swipe, SwipeItem,ImagePreview,Dialog,Tag  } from 'vant'
+import { Button, Col, Row, Tab, Tabs, Icon, Swipe, SwipeItem, ImagePreview, Dialog, Tag, Toast } from 'vant'
 
 Vue.use(Button)
 Vue.use(Col)
@@ -12,3 +12,4 @@ Vue.use(SwipeItem);
 Vue.use(ImagePreview);
 Vue.use(Dialog);
 Vue.use(Tag);
+Vue.use(Toast);

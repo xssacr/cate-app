@@ -3,7 +3,7 @@
     <van-row type="flex" justify="space-between" class="infos">
       <van-col span="12">
         <img class="user-icon" :src="item.profile_src" alt />
-        <span>{{item.uname}}</span>
+        <span>{{item.id}}</span>
       </van-col>
       <van-col span="12" align="right">
         <van-button type="warning" plain size="small">关注</van-button>
@@ -81,7 +81,6 @@ export default {
     },
     swipClickHandler() {
       // 图片点击是，预览图片
-      console.log("aaa");
       ImagePreview(this.item.imgArr);
     }
   },
@@ -98,7 +97,6 @@ export default {
   }
   .infos {
     padding: 10px 20px;
-    background-color: #ccc;
     & > :nth-child(1) {
       display: flex;
       justify-content: space-around;

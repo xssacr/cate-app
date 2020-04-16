@@ -57,7 +57,6 @@ export default {
 
 <style lang="scss" scoped>
 .kitchen-container {
-  background-color: #f78;
   width: 100%;
   height: 100%;
   display: flex;
@@ -72,6 +71,7 @@ export default {
       flex: 1;
       .van-tab__pane {
         height: 100%;
+        overflow: hidden;
       }
     }
     // .van-tabs__content {
