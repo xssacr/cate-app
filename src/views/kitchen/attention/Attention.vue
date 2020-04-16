@@ -7,7 +7,7 @@
 </template>
 
 <script>
-import AttentionItem from "../../../components/AttentionItem";
+import AttentionItem from "./AttentionItem";
 import BScroll from "@better-scroll/core";
 import Pullup from "@better-scroll/pull-up";
 import PullDown from "@better-scroll/pull-down";
