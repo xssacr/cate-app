@@ -17,13 +17,17 @@
     </HeaderBar>
 
     <van-tabs class="vant-tab-bar" v-model="active" animated swipeable title-active-color="#000">
-      <van-tab title="关注" :title-style="titleStyle"></van-tab>
+      <van-tab title="关注" :title-style="titleStyle">
+        <Attention />
+      </van-tab>
 
       <van-tab title="推荐" :title-style="titleStyle">
         <Recommend />
       </van-tab>
 
-      <van-tab title="发现" :title-style="titleStyle"></van-tab>
+      <van-tab title="发现" :title-style="titleStyle">
+        <Discover />
+      </van-tab>
     </van-tabs>
   </div>
 </template>
@@ -31,6 +35,8 @@
 <script>
 import HeaderBar from "../../components/HeaderBar";
 import Recommend from "./recommend/Recommend";
+import Discover from "./discover/Discover";
+import Attention from "./attention/Attention";
 export default {
   data() {
     return {
@@ -42,7 +48,9 @@ export default {
   },
   components: {
     HeaderBar,
-    Recommend
+    Recommend,
+    Discover,
+    Attention
   }
 };
 </script>
@@ -59,10 +67,10 @@ export default {
     flex: 1;
     display: flex;
     flex-direction: column;
-
+    overflow: hidden;
     /deep/ .van-tabs__content {
       flex: 1;
-      .van-tab__pane{
+      .van-tab__pane {
         height: 100%;
       }
     }

@@ -1,1 +1,1 @@
-import './recommend.js';
+import './kitchen.js';

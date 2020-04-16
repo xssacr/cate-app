@@ -23,6 +23,7 @@ export default {
   height: 100%;
   main {
     flex: 1;
+    overflow: hidden;
   }
 }
 </style>
