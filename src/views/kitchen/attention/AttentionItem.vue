@@ -1,9 +1,9 @@
 <template>
   <div class="item-container">
     <van-row type="flex" justify="space-between" class="infos">
-      <van-col span="12">
+      <van-col span="9">
         <img class="user-icon" :src="item.profile_src" alt />
-        <span>{{item.id}}</span>
+        <span>{{item.uname}}</span>
       </van-col>
       <van-col span="12" align="right">
         <van-button type="warning" plain size="small">关注</van-button>
