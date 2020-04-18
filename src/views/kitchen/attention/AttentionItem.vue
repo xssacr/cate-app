@@ -15,7 +15,7 @@
       <van-swipe-item
         v-for="(img,imgIndex) in item.imgArr"
         :key="imgIndex"
-        @click="swipClickHandler"
+        @click="swipClickHandler(imgIndex)"
       >
         <img :src="img" alt />
       </van-swipe-item>
@@ -79,9 +79,12 @@ export default {
     onChange(index) {
       this.current = index;
     },
-    swipClickHandler() {
+    swipClickHandler(index) {
       // 图片点击是，预览图片
-      ImagePreview(this.item.imgArr);
+      ImagePreview({
+        images:this.item.imgArr,
+        startPosition: index,
+      });
     }
   },
   components: {
