@@ -2,6 +2,13 @@
   <div class="attention-wrap" ref="attention-wrap">
     <div class="attention-container">
       <AttentionItem v-for="item in datalist" :key="item.id" :item="item" />
+
+      <div class="pullup-wrapper">
+        <div class="before-trigger" v-if="isPullUpLoad">
+          <van-loading color="#f78"></van-loading>
+        </div>
+        <div class="before-trigger" v-else>没有更多内容了呢...</div>
+      </div>
     </div>
   </div>
 </template>
@@ -9,61 +16,30 @@
 <script>
 import AttentionItem from "./AttentionItem";
 import BScroll from "@better-scroll/core";
-import Pullup from "@better-scroll/pull-up";
-import PullDown from "@better-scroll/pull-down";
-BScroll.use(Pullup);
-BScroll.use(PullDown);
+import PullUp from "@better-scroll/pull-up";
+BScroll.use(PullUp);
+import { Indicator } from "mint-ui";
+
 export default {
   data() {
     return {
-      pageno: 1,
-      pagesize: 3,
       datalist: [],
-      isEnd: false
+      pageno: 1,
+      pagesize: 5,
+      isEnd: false,
+      isPullUpLoad: true
     };
   },
   components: {
     AttentionItem
   },
   methods: {
-    async getlist() {
-      if (this.isend) {
-        this.$toast.fail("没有更多的数据了");
-        // this.scroll.finishPullUp();
-        return;
-      }
-
-      this.$toast.loading({
-        message: "加载中...",
-        forbidClick: true
-      });
-
-      let rs = await this.$http.post("/api/attention/getlist", {
-        pageno: this.pageno,
-        pagesize: this.pagesize
-      });
-
-      if (rs.data.code === -1) {
-        // 没有更多数据了
-        this.isEnd = true;
-        return;
-      }
-
-      // 如果是第一次请求数据，就直接赋值给 datalist
-      if (this.pageno === 1) {
-        this.datalist = rs.data.datalist;
-      } else {
-        // 否则需要添加追加
-        this.datalist.push(...rs.data.datalist);
-        this.scroll.refresh();
-      }
-
-      this.$nextTick(() => {
-        this.initScroll();
-        // this.scroll.finishPullUp();
-      });
-    },
     initScroll() {
+      if (this.scroll) {
+        this.scroll.refresh(); // 刷新 bsroll
+        return;
+      }
+
       this.scroll = new BScroll(this.$refs["attention-wrap"], {
         probeType: 3,
         scrollY: true,
@@ -71,14 +47,46 @@ export default {
         pullUpLoad: true
       });
 
-      this.scroll.on("pullingUp", () => {
+      this.scroll.on("pullingUp", () => this.getAttentionList());
+
+      this.scroll.on("refresh", () => {
+        console.log("refresh已经调用");
+      });
+    },
+    async getAttentionList() {
+      if (this.isEnd) {
+        this.isPullUpLoad = false;
+        return;
+      }
+      let rs = await this.$http.post("/api/attention/getlist", {
+        pageno: this.pageno,
+        pagesize: this.pagesize
+      });
+
+      console.log("length : ", rs.data.datalist.length);
+      // 判断返回数据的长度
+      if (rs.data.datalist.length < this.pagesize) {
+        this.isEnd = true;
+      }
+
+      // 如果不是第一次加载就把数据追加到原列表中
+      if (this.pageno === 0) {
+        this.datalist = rs.data.datalist;
+      } else {
+        this.datalist.push(...rs.data.datalist);
+      }
+
+      this.$nextTick(() => {
+        // 初始化 betterscroll
+        this.initScroll();
+        this.scroll.finishPullUp();
         this.pageno++;
-        this.getlist();
       });
     }
   },
   created() {
-    this.getlist();
+    // 页面第一次加载时，加载 <关注> 的数据
+    this.getAttentionList();
   },
   mounted() {}
 };
@@ -88,5 +96,10 @@ export default {
 .attention-wrap {
   height: 100%;
   overflow: hidden;
+  .pullup-wrapper {
+    padding: 20px;
+    text-align: center;
+    color: #999;
+  }
 }
 </style>

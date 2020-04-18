@@ -18,7 +18,7 @@ Mock.mock('/api/recommend/getlist', "post", options => {
 })
 
 let attentionList = Mock.mock({
-  'datalist|10': [{
+  'datalist|13': [{  // 
     'id|+1': 1,
     profile_src: Random.image('50x50', '@color()', '#fff', 'png'),
     uname: '@ctitle(4,6)',
@@ -51,15 +51,6 @@ Mock.mock('/api/attention/getlist', "post", options => {
   let endIndex = startIndex + pagesize;
 
   let result = attentionList.datalist.slice(startIndex, endIndex);
-
-  console.log(result.length);
-  if (result.length < pagesize) {
-    // 到最后了
-    return {
-      code: -1, datalist: result,
-      message: '没有更多数据了呢'
-    }
-  }
   return {
     code: 1,
     datalist: result
