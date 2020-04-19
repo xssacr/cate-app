@@ -7,7 +7,7 @@
   >
     <ListItem slot-scope="props" :data="props.value">
       <template #right-icon>
-        <i class="iconfont icon-praise"></i>
+        <i :class="['iconfont',icon]"></i>
       </template>
     </ListItem>
   </vue-waterfall-easy>
@@ -17,7 +17,7 @@
 import ListItem from "./ListItem";
 import vueWaterfallEasy from "vue-waterfall-easy";
 export default {
-  props: ["url"],
+  props: ["url", "icon"],
   data() {
     return {
       imgsArr: [], // 数据

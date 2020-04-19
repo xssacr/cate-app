@@ -18,7 +18,7 @@
     </van-row>
 
     <!-- 推荐列表 瀑布流布局 -->
-    <WaterFall :url="requestUrl"></WaterFall>
+    <WaterFall :url="requestUrl" icon="icon-love"></WaterFall>
   </div>
 </template>
 

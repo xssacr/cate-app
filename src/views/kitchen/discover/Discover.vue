@@ -16,7 +16,7 @@
 
     <!-- 发现列表 瀑布流布局 -->
     <div class="discover-list">
-      <WaterFall :url="requestUrl"></WaterFall>
+      <WaterFall :url="requestUrl" icon="icon-praise"></WaterFall>
     </div>
   </div>
 </template>
