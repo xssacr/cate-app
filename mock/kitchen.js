@@ -22,7 +22,7 @@ initRecommendList();
 
 Mock.mock('/api/recommend/getlist', "post", options => {
   let { group } = JSON.parse(options.body);
-  console.log(recommendlist)
+  
   let startIndex = (group - 1) * 10;
   let endIndex = startIndex + 10;
   let result = recommendlist.slice(startIndex, endIndex)

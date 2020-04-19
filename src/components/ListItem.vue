@@ -3,11 +3,7 @@
     <div class="van-multi-ellipsis--l2 title">{{data.title}}</div>
     <van-row type="flex" justify="space-between">
       <van-col span="4" align="center">
-        <img
-          class="user-icon"
-          :src="data.profile_src"
-          alt
-        />
+        <img class="user-icon" :src="data.profile_src" alt />
       </van-col>
       <van-col span="10">
         <span class="nick-name">{{data.uname}}</span>
@@ -22,19 +18,20 @@
 
 <script>
 export default {
-  props: ["data"],
+  props: ["data"]
 };
 </script>
 
 <style lang="scss" scoped>
+.alink {
+  box-shadow: none;
+}
 .item-container {
-  & > img {
-    width: 100%;
-    height: 200px;
-  }
   .title {
     font-size: 15px;
     font-weight: bold;
+    padding: 3px 5px;
+    box-sizing: border-box;
   }
   .user-icon {
     width: 24px;
