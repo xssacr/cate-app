@@ -74,10 +74,6 @@ export default {
         overflow: hidden;
       }
     }
-    // .van-tabs__content {
-    //   height: 100%;
-    //   flex: 1;
-    // }
   }
 }
 </style>
