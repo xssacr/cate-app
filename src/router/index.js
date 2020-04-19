@@ -5,13 +5,11 @@ import Authority from '../views/Authority.vue'
 import Login from '../views/Login.vue'
 
 import Kitchen from '../views/kitchen/Kitchen.vue';
-import Attention from '../views/kitchen/attention/Attention.vue';
-import Recommend from '../views/kitchen/recommend/Recommend.vue';
-import Discover from '../views/kitchen/discover/Discover.vue';
 import Fair from '../views/fair/Fair.vue';
 import ClassRoom from '../views/classroom/ClassRoom.vue';
-import Collect from '../views/collect/Collect.vue';
+import Enshrine from '../views/enshrine/Enshrine.vue';
 import Profile from '../views/profile/Profile.vue';
+import CollectList from '../views/kitchen/discover/CollectList.vue'
 
 Vue.use(VueRouter)
 
@@ -30,23 +28,6 @@ const routes = [
         // 厨房
         path: 'kitchen',
         component: Kitchen,
-        // children: [
-        //   {
-        //     // 关注
-        //     path: 'attention',
-        //     component: Attention
-        //   },
-        //   {
-        //     // 推荐 (网页第一次加载时跳转到这里)
-        //     path: 'recommend',
-        //     component: Recommend
-        //   },
-        //   {
-        //     // 发现
-        //     path: 'discover',
-        //     component: Discover
-        //   }
-        // ]
       },
       {
         // 市集
@@ -60,8 +41,8 @@ const routes = [
       },
       {
         // 收藏
-        path: 'collect',
-        component: Collect
+        path: 'enshrine',
+        component: Enshrine
       },
       {
         // 我的
@@ -69,6 +50,10 @@ const routes = [
         component: Profile
       }
     ]
+  },
+  {
+    path: '/collectlist',
+    component: CollectList
   },
   {
     // 没有权限
