@@ -22,6 +22,8 @@
       animated
       :swipeable="isSwipeable"
       title-active-color="#000"
+      :border="false"
+      :duration="duration"
     >
       <van-tab title="关注" :title-style="titleStyle">
         <Attention />
@@ -48,6 +50,7 @@ export default {
   data() {
     return {
       active: 1,
+      duration:0.8,
       titleStyle: {
         fontSize: "18px"
       }
