@@ -28,12 +28,13 @@ export default {
     background: #fff;
     border-radius: 5px;
     text-align: center;
+    line-height: 22px;
     font-weight: bold;
     color: #555;
     position: absolute;
     left: 15px;
     bottom: 15px;
-    font-size: 12px;
+    font-size: 10px;
   }
 }
 </style>

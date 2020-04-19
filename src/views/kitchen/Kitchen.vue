@@ -16,7 +16,13 @@
       </template>
     </HeaderBar>
 
-    <van-tabs class="vant-tab-bar" v-model="active" animated :swipeable="isSwipeable" title-active-color="#000">
+    <van-tabs
+      class="vant-tab-bar"
+      v-model="active"
+      animated
+      :swipeable="isSwipeable"
+      title-active-color="#000"
+    >
       <van-tab title="关注" :title-style="titleStyle">
         <Attention />
       </van-tab>
@@ -37,7 +43,7 @@ import HeaderBar from "../../components/HeaderBar";
 import Recommend from "./recommend/Recommend";
 import Discover from "./discover/Discover";
 import Attention from "./attention/Attention";
-import {mapState} from 'vuex'
+import { mapState } from "vuex";
 export default {
   data() {
     return {
@@ -53,8 +59,8 @@ export default {
     Discover,
     Attention
   },
-  computed:{
-    ...mapState(['isSwipeable'])
+  computed: {
+    ...mapState(["isSwipeable"])
   }
 };
 </script>

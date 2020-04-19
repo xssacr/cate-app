@@ -71,8 +71,7 @@ export default {
   .collect-wrapper {
     height: 100px;
     margin: 8px 0 15px;
-    background-color: #f78;
-    padding: 0 15px;
+    padding: 0 5px;
     box-sizing: border-box;
     width: 100%;
     .collect-con {
