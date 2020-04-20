@@ -5,6 +5,7 @@ let Random = Mock.Random;
 
 let recommendlist = []
 
+// 生成数据
 function initRecommendList() {
   for (let i = 0; i < 100; i++) {
     recommendlist.push(Mock.mock({
@@ -20,6 +21,7 @@ function initRecommendList() {
 
 initRecommendList();
 
+// 发现、推荐的数据接口 
 Mock.mock('/api/recommend/getlist', "post", options => {
   let { group } = JSON.parse(options.body);
   
@@ -34,6 +36,7 @@ Mock.mock('/api/recommend/getlist', "post", options => {
 
 })
 
+// 生成关注的所有数据
 let attentionList = Mock.mock({
   'datalist|100': [{
     'id|+1': 1,
@@ -57,8 +60,6 @@ let attentionList = Mock.mock({
     }]
   }]
 })
-
-
 
 // 关注数据接口
 Mock.mock('/api/attention/getlist', "post", options => {

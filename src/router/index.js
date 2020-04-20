@@ -10,6 +10,7 @@ import ClassRoom from '../views/classroom/ClassRoom.vue';
 import Enshrine from '../views/enshrine/Enshrine.vue';
 import Profile from '../views/profile/Profile.vue';
 import CollectList from '../views/kitchen/discover/CollectList.vue'
+import CateCategory from '../views/kitchen/recommend/CateCategory.vue'
 
 Vue.use(VueRouter)
 
@@ -65,6 +66,10 @@ const routes = [
     // 登录
     path: '/login',
     component: Login
+  },
+  {
+    path: '/category',
+    component: CateCategory
   }
 ]
 

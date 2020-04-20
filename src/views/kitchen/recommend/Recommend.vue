@@ -13,7 +13,7 @@
         <h2>为你推荐</h2>
       </van-col>
       <van-col span="6" align="right">
-        <span class="cate-menu-category">菜谱分类</span>
+        <span class="cate-menu-category" @click="$router.push('/category')">菜谱分类</span>
       </van-col>
     </van-row>
 
