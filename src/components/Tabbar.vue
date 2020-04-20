@@ -12,7 +12,7 @@
       <i class="iconfont icon-classroom"></i>
       <span>课堂</span>
     </router-link>
-    <router-link to="/home/collect" tag="div">
+    <router-link to="/home/enshrine" tag="div">
       <i class="iconfont icon-love"></i>
       <span>收藏</span>
     </router-link>

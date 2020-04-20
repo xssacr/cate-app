@@ -68,8 +68,22 @@ const routes = [
   }
 ]
 
+
 const router = new VueRouter({
   routes
+})
+
+router.beforeEach((to, from, next) => {
+  if (to.path === '/home/profile' || to.path === '/home/enshrine') {
+    let user = sessionStorage.getItem('username');
+    if (user) {
+      next();
+    } else {
+      router.push('/authority')
+    }
+  } else {
+    next();
+  }
 })
 
 export default router
